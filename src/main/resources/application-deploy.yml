@@ -1,0 +1,19 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB:userdb}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+
+security:
+  jwt:
+    accessToken:
+      secret: ${ACCESS_TOKEN_SECRET:"b858HK56DUuxGraUtFSj4KA/ysWxcenqZ3M1hovR8p2zjCXzOyYgn6V++2JT1Ph3"}
+    refreshToken:
+      secret: ${REFRESH_TOKEN_SECRET:"gLGxGagS0+rgInro0oW3gs2JBdYl0AT108qRfAW4PYnPSF7KSgWS04LME3/GhTIe"}
+

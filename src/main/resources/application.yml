@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/userdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  
+  flyway:
+    enabled: true
+  
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
+security:
+  jwt:
+    accessToken:
+      secret: "b858HK56DUuxGraUtFSj4KA/ysWxcenqZ3M1hovR8p2zjCXzOyYgn6V++2JT1Ph3"
+      expiration: 1h
+    refreshToken:
+      secret: "gLGxGagS0+rgInro0oW3gs2JBdYl0AT108qRfAW4PYnPSF7KSgWS04LME3/GhTIe"
+      expiration: 1d
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+  api-docs:
+    path: /api-docs
